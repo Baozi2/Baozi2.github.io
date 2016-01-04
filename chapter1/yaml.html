@@ -53,7 +53,7 @@
         data-chapter-title="yaml"
         data-filepath="chapter1/yaml.md"
         data-basepath=".."
-        data-revision="Mon Jan 04 2016 15:39:50 GMT+0800 (CST)"
+        data-revision="Mon Jan 04 2016 16:30:14 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -274,10 +274,25 @@
                         <p>YAML: YAML Ain&apos;t Markup Language</p>
 <p>What It Is: YAML is a human friendly data serialization
   standard for all programming languages</p>
-<h3 id="1-&#x4E00;&#x822C;&#x4F7F;&#x7528;&#x4F5C;&#x4E3A;&#x6587;&#x4EF6;&#x7684;&#x5F00;&#x5934;">1 &#x4E00;&#x822C;&#x4F7F;&#x7528;&apos;---&apos;&#x4F5C;&#x4E3A;&#x6587;&#x4EF6;&#x7684;&#x5F00;&#x5934;</h3>
-<h3 id="3-&#x540E;&#x8FB9;&#x7684;&#x662F;&#x6CE8;&#x91CA;&#x5185;&#x5BB9;">3 #&#x540E;&#x8FB9;&#x7684;&#x662F;&#x6CE8;&#x91CA;&#x5185;&#x5BB9;</h3>
-<h3 id="2-&#x5217;&#x8868;-&#x540E;&#x8FB9;&#x5FC5;&#x987B;&#x8DDF;&#x4E00;&#x4E2A;&#x7A7A;&#x683C;">2 &#x5217;&#x8868;(-) -&#x540E;&#x8FB9;&#x5FC5;&#x987B;&#x8DDF;&#x4E00;&#x4E2A;&#x7A7A;&#x683C;</h3>
-<p> <code>- Apple</code><br> <code>- Banana</code></p>
+<h3 id="1-&#x4E00;&#x822C;&#x4F7F;&#x7528;yaml&#x4F5C;&#x4E3A;&#x6269;&#x5C55;&#x540D;">1 &#x4E00;&#x822C;&#x4F7F;&#x7528;&apos;.yaml&apos;&#x4F5C;&#x4E3A;&#x6269;&#x5C55;&#x540D;</h3>
+<p> &#x4E0D;&#x7528;&#x8BED;&#x8A00;&#x53EF;&#x80FD;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x7EA6;&#x5B9A;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A; &#x5728;ruby&#x4E2D;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x6269;&#x5C55;&#x540D;&#x662F;&apos;.yml&apos;&#x4E5F;&#x662F;&#x5F53;&#x505A;yaml&#x6765;&#x89E3;&#x6790;</p>
+<h3 id="2-&#x4F7F;&#x7528;&#x6CE8;&#x91CA;">2 &#x4F7F;&#x7528;&apos;#&apos;&#x6CE8;&#x91CA;</h3>
+<h3 id="3-&#x4F7F;&#x7528;&#x8868;&#x793A;&#x5E8F;&#x5217;">3 &#x4F7F;&#x7528;&apos;-&apos;&#x8868;&#x793A;&#x5E8F;&#x5217;</h3>
+<pre><code>&#x6CE8;&#x610F;&#xFF1A;&apos;-&apos;&#x540E;&#x8FB9;&#x7D27;&#x8DDF;&#x7A7A;&#x683C;
+</code></pre><h3 id="4-&#x4F7F;&#x7528;keyvalue-&#x8868;&#x793A;mapper">4 &#x4F7F;&#x7528;key:value &#x8868;&#x793A;mapper</h3>
+<pre><code>&#x6CE8;&#x610F;&#xFF1A;key&#x540E;&#x8FB9;&#x7684;&apos;:&apos;&#x540E;&#x8FB9;&#x7D27;&#x8DDF;&#x7A7A;&#x683C;
+</code></pre><h3 id="5-aliased-&#x91CD;&#x590D;&#x503C;-&#x58F0;&#x660E;--&#x5F15;&#x7528;">5 aliased &#x91CD;&#x590D;&#x503C; &apos;&amp;&apos;&#x58F0;&#x660E; &apos;*&apos; &#x5F15;&#x7528;</h3>
+<h3 id="6-&#x5F53;key&#x6216;&#x8005;&#x4F5C;&#x4E3A;&#x8D77;&#x59CB;&#x8282;&#x70B9;&#x65F6;&#xFF0C;key&#x6216;&#x8005;&#x548C;&#x884C;&#x9996;&#x4E4B;&#x95F4;&#x4E0D;&#x5E94;&#x8BE5;&#x6709;&#x7A7A;&#x683C;">6 &#x5F53;key&#x6216;&#x8005;&apos;-&apos;&#x4F5C;&#x4E3A;&#x8D77;&#x59CB;&#x8282;&#x70B9;&#x65F6;&#xFF0C;key&#x6216;&#x8005;&apos;-&apos;&#x548C;&#x884C;&#x9996;&#x4E4B;&#x95F4;&#x4E0D;&#x5E94;&#x8BE5;&#x6709;&#x7A7A;&#x683C;</h3>
+<h3 id="7-&#x4E00;&#x822C;&#x4F5C;&#x4E3A;&#x6587;&#x4EF6;&#x5F00;&#x5934;">7 &apos;---&apos;&#x4E00;&#x822C;&#x4F5C;&#x4E3A;&#x6587;&#x4EF6;&#x5F00;&#x5934;</h3>
+<h3 id="8-&#x4E00;&#x822C;&#x5B50;&#x8282;&#x70B9;&#x548C;&#x7236;&#x8282;&#x70B9;&#x95F4;&#x8DDD;&#x4E24;&#x4E2A;&#x7A7A;&#x683C;">8 &#x4E00;&#x822C;&#x5B50;&#x8282;&#x70B9;&#x548C;&#x7236;&#x8282;&#x70B9;&#x95F4;&#x8DDD;&#x4E24;&#x4E2A;&#x7A7A;&#x683C;</h3>
+<h3 id="&#x53C2;&#x8003;&#x94FE;&#x63A5;"><a href="http://www.yaml.org/spec/1.2/spec.html#id2759963" target="_blank">&#x53C2;&#x8003;&#x94FE;&#x63A5;</a></h3>
+<p>Exampl1:<br>- Apple<br>- Banana<br>- Wine  </p>
+<p>Exampl2:<br>name: yu<br>sex: secret</p>
+<p>Exampl3<br>fruit:<br>  - Apple<br>  - Banana<br>  - Wine  </p>
+<p>Exampl4<br>fruit:<br>  - Apple<br>  - Banana<br>  - Wine</p>
+<p>Exampl5(aliased)<br>VERSION: &amp;v 1.0<br>JAVA: *v<br>JS: *v<br>RUBY: *v</p>
+<p>Exampl6(&#x4F7F;&#x7528;|&#x6B64;&#x65F6;Apple&#x3001;Banan&#x3001;Wine&#x5404;&#x5360;&#x4E00;&#x884C;)<br>Nihao: |<br>  Apple<br>  Banana<br>  Wine</p>
+<p>Exampl7(&#x4F7F;&#x7528;|&#x6B64;&#x65F6;Apple&#x3001;Banan&#x3001;Wine&#x5360;&#x4E00;&#x884C;)<br>fruit: &gt;<br>  Apple<br>  Banana<br>  Wine</p>
 
                     
                     </section>
