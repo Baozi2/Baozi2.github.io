@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>linuxcommand | Introduction</title>
+        <title>centos6.x内核升级 | Introduction</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../chapter2/index.html" />
+    <link rel="next" href="../chapter2/ctosdk.html" />
     
     
-    <link rel="prev" href="../chapter1/docker.html" />
+    <link rel="prev" href="../chapter2/index.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="1.9"
-        data-chapter-title="linuxcommand"
-        data-filepath="chapter1/lcmd.md"
+        data-level="2.1"
+        data-chapter-title="centos6.x内核升级"
+        data-filepath="chapter2/cscu.md"
         data-basepath=".."
         data-revision="Tue Jan 05 2016 15:10:35 GMT+0800 (CST)"
         data-innerlanguage="">
@@ -218,7 +218,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.9" data-path="chapter1/lcmd.html">
+        <li class="chapter " data-level="1.9" data-path="chapter1/lcmd.html">
             
                 
                     <a href="../chapter1/lcmd.html">
@@ -254,7 +254,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.1" data-path="chapter2/cscu.html">
+        <li class="chapter active" data-level="2.1" data-path="chapter2/cscu.html">
             
                 
                     <a href="../chapter2/cscu.html">
@@ -329,17 +329,36 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h3 id="linux&#x547D;&#x4EE4;&#x79EF;&#x7D2F;">linux&#x547D;&#x4EE4;&#x79EF;&#x7D2F;</h3>
-<h4 id="1-&#x786C;&#x94FE;&#x63A5;&#x548C;&#x8F6F;&#x94FE;&#x63A5;&#x89E3;&#x51B3;&#x4E86;&#x6587;&#x4EF6;&#x5171;&#x4EAB;-linkln">1 &#x786C;&#x94FE;&#x63A5;&#x548C;&#x8F6F;&#x94FE;&#x63A5;--&#x89E3;&#x51B3;&#x4E86;&#x6587;&#x4EF6;&#x5171;&#x4EAB; link/ln</h4>
-<pre><code>link/ln old.fle hardlink.file  &#x9ED8;&#x8BA4;&#x521B;&#x5EFA;&#x786C;&#x94FE;&#x63A5;  
-&#x786C;&#x94FE;&#x63A5;: 1 &#x4E0D;&#x80FD;&#x4E3A;&#x76EE;&#x5F55;&#x521B;&#x5EFA; 2 &#x4E0D;&#x80FD;&#x4E3A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x6587;&#x4EF6;&#x521B;&#x5EFA;  
-link/ln -s source dest &#x4E0D;&#x5B58;&#x5728;&#x786C;&#x94FE;&#x63A5;&#x7684;&#x9650;&#x5236;
-</code></pre><h4 id="&#x53C2;&#x8003;&#x94FE;&#x63A5;"><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/index.html" target="_blank">&#x53C2;&#x8003;&#x94FE;&#x63A5;</a></h4>
-<h4 id="2-shell">2 shell</h4>
-<pre><code>  cat /etc/shells &#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x4E0B;&#x7684;shells
-  chsh -s &#x76EE;&#x6807;shell    
-  echo $SHELL &#x663E;&#x793A;&#x9ED8;&#x8BA4;&#x7684;shell
-</code></pre><h3 id="2016&#x5E74;01&#x6708;04&#x65E5;135332">2016&#x5E74;01&#x6708;04&#x65E5;13:53:32</h3>
+                        <h1 id="centos67&#x5185;&#x6838;&#x5347;&#x7EA7;">centos6.7&#x5185;&#x6838;&#x5347;&#x7EA7;</h1>
+<h3 id="1-&#x67E5;&#x770B;&#x5F53;&#x524D;&#x5185;&#x6838;&#x7248;&#x672C;">1 &#x67E5;&#x770B;&#x5F53;&#x524D;&#x5185;&#x6838;&#x7248;&#x672C;</h3>
+<blockquote>
+<p>$ <code>uname -r</code><br>$ <code>cat /etc/redhat-release ##&#x67E5;&#x770B;centos&#x7248;&#x672C;</code></p>
+</blockquote>
+<h3 id="2-&#x5BFC;&#x5165;key">2 &#x5BFC;&#x5165;key</h3>
+<blockquote>
+<p>$ <code>rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org</code></p>
+</blockquote>
+<h3 id="3-&#x5B89;&#x88C5;elrepo">3 &#x5B89;&#x88C5;ELRepo</h3>
+<blockquote>
+<p>$ <code>rpm -Uvh http://www.elrepo.org/elrepo-release-6-6.el6.elrepo.noarch.rpm</code></p>
+</blockquote>
+<h3 id="4-&#x5B89;&#x88C5;&#x957F;&#x671F;&#x652F;&#x6301;&#x7248;&#x672C;&#x7684;&#x5185;&#x6838;">4 &#x5B89;&#x88C5;&#x957F;&#x671F;&#x652F;&#x6301;&#x7248;&#x672C;&#x7684;&#x5185;&#x6838;</h3>
+<blockquote>
+<p>$ <code>yum --enablerepo=elrepo-kernel install kernel-lt -y</code></p>
+</blockquote>
+<h3 id="5-&#x4FEE;&#x6539;&#x9ED8;&#x8BA4;&#x542F;&#x52A8;&#x7684;&#x5185;&#x6838;">5 &#x4FEE;&#x6539;&#x9ED8;&#x8BA4;&#x542F;&#x52A8;&#x7684;&#x5185;&#x6838;</h3>
+<blockquote>
+<p><code>vi /etc/grub.conf</code></p>
+<p>&#x65B0;&#x5B89;&#x88C5;&#x7684;&#x5185;&#x6838;&#x4E00;&#x822C;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#xFF0C;&#x628A;defaut=1&#x6539;&#x4E3A;0&#x5373;&#x53EF;</p>
+</blockquote>
+<p>default=1<br>timeout=5<br>splashimage=(hd0,0)/boot/grub/splash.xpm.gz<br>hiddenmenu<br>title CentOS (3.10.94-1.el6.elrepo.x86_64)<br>    root (hd0,0)<br>    kernel /boot/vmlinuz-3.10.94-1.el6.elrepo.x86_64 ro root=UUID=3f8f9044-c1d5-4412-8470-87d810bbdb15   rd_NO_LUKS rd_NO_LVM LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto    KEYBOARDTYPE=pc KEYTABLE=us rd_NO_DM rhgb quiet console=tty0 console=ttyS0,115200n8<br>    initrd /boot/initramfs-3.10.94-1.el6.elrepo.x86_64.img<br>title CentOS release 6.7 (Final) 2.6.32-431.el6.x86_64 mod<br>    root (hd0,0)<br>    kernel /boot/vmlinuz-2.6.32-431.el6.x86_64-mod ro root=UUID=3f8f9044-c1d5-4412-8470-87d810bbdb15   rd_NO_LUKS rd_NO_LVM LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto    KEYBOARDTYPE=pc KEYTABLE=us rd_NO_DM rhgb quiet console=tty0 console=ttyS0,115200n8  </p>
+<h3 id="6-&#x91CD;&#x542F;">6 &#x91CD;&#x542F;</h3>
+<blockquote>
+<p>$ reboot &#x6216;&#x8005; shutdown -r now</p>
+<p>$ uname -r #&#x67E5;&#x770B;&#x5F53;&#x524D;&#x5185;&#x6838;&#x7248;&#x672C;</p>
+</blockquote>
+<h3 id="&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;">&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;</h3>
+<p>   <a href="http://dockerpool.com/article/1415195109" target="_blank">http://dockerpool.com/article/1415195109</a><br>   <a href="http://elrepo.org/tiki/tiki-index.php" target="_blank">http://elrepo.org/tiki/tiki-index.php</a><br>   <a href="http://elrepo.org/tiki/kernel-lt" target="_blank">http://elrepo.org/tiki/kernel-lt</a></p>
 
                     
                     </section>
@@ -350,10 +369,10 @@ link/ln -s source dest &#x4E0D;&#x5B58;&#x5728;&#x786C;&#x94FE;&#x63A5;&#x7684;&
         </div>
 
         
-        <a href="../chapter1/docker.html" class="navigation navigation-prev " aria-label="Previous page: docker"><i class="fa fa-angle-left"></i></a>
+        <a href="../chapter2/index.html" class="navigation navigation-prev " aria-label="Previous page: 运维"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../chapter2/index.html" class="navigation navigation-next " aria-label="Next page: 运维"><i class="fa fa-angle-right"></i></a>
+        <a href="../chapter2/ctosdk.html" class="navigation navigation-next " aria-label="Next page: centos6.x安装docker"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

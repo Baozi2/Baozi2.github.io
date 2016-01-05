@@ -53,7 +53,7 @@
         data-chapter-title="docker"
         data-filepath="chapter1/docker.md"
         data-basepath=".."
-        data-revision="Mon Jan 04 2016 16:30:14 GMT+0800 (CST)"
+        data-revision="Tue Jan 05 2016 15:10:35 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -238,6 +238,64 @@
             
         </li>
     
+        <li class="chapter " data-level="2" data-path="chapter2/index.html">
+            
+                
+                    <a href="../chapter2/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        运维
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="chapter2/cscu.html">
+            
+                
+                    <a href="../chapter2/cscu.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        centos6.x内核升级
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="chapter2/ctosdk.html">
+            
+                
+                    <a href="../chapter2/ctosdk.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        centos6.x安装docker
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="chapter2/dkpr.html">
+            
+            <span><b>2.3.</b> centos6.x安装docker私有仓库</span>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
 
             
@@ -286,8 +344,17 @@
 <p>7 sudo apt-get install docker-engine</p>
 <p>8 Start the docker daemon #&#x4EE5;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x542F;&#x52A8;
   sudo service docker start/stop</p>
-<p>  ps: apt-get dist-upgrade #&#x5347;&#x7EA7;&#x8F6F;&#x4EF6; &#x81EA;&#x52A8;&#x7BA1;&#x7406;&#x4F9D;&#x8D56;
-      apt-get upgrade #&#x5347;&#x7EA7;&#x8F6F;&#x4EF6; &#x4E0D;&#x4F1A;&#x5904;&#x7406;&#x4F9D;&#x8D56;# docker</p>
+<p>ps: apt-get dist-upgrade #&#x5347;&#x7EA7;&#x8F6F;&#x4EF6; &#x81EA;&#x52A8;&#x7BA1;&#x7406;&#x4F9D;&#x8D56;</p>
+<pre><code>apt-get upgrade #&#x5347;&#x7EA7;&#x8F6F;&#x4EF6; &#x4E0D;&#x4F1A;&#x5904;&#x7406;&#x4F9D;&#x8D56;# docker
+</code></pre><hr>
+<h3 id="optional-configurations">Optional configurations</h3>
+<p>1 create a Docker group
+docker daemon &#x7ED1;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;Unix socket&#x800C;&#x4E0D;&#x662F;Tcp port&#x3002;&#x9ED8;&#x8BA4;&#x72B6;&#x6001;&#x4E0B;Unix socket&#x7684;&#x6240;&#x6709;&#x8005;&#x662F;root&#x7528;&#x6237;&#x3002;
+&#x5176;&#x5B83;&#x7528;&#x6237;&#x4F7F;&#x7528;sudo&#x80FD;&#x591F;&#x8BBF;&#x95EE;&#x5B83;&#x3002;&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x5728;&#x4F7F;&#x7528;docker&#x547D;&#x4EE4;&#x65F6;&#x6BCF;&#x6B21;&#x90FD;&#x52A0;sudo,&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x53EB;docker&#x7684;group&#xFF0C;&#x5E76;&#x5C06;
+&#x7528;&#x6237;&#x52A0;&#x5165;&#x6539;&#x7EC4;&#x3002;&#x3002;&#x91CD;&#x542F;&#x540E;&#x751F;&#x6548;</p>
+<h4 id="sudo-usermod-ag-docker-yourusername">$ sudo usermod -aG docker your_username</h4>
+<p>By default that Unix socket is owned by the user root and other users can access it with sudo. For this reason, docker daemon always runs as the root user.</p>
+<p>To avoid having to use sudo when you use the docker command, create a Unix group called docker and add users to it. When the docker daemon starts, it makes the ownership of the Unix socket read/writable by the docker group.</p>
 
                     
                     </section>
