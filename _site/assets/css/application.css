@@ -1,0 +1,16 @@
+html {
+  font-size: 14px; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Tahoma, Arial, "PingFang SC", "Microsoft YaHei", san-serif;
+  margin: 0;
+  border-top: 4px solid;
+  background: #ffffff; }
+
+header, section {
+  width: 900px;
+  margin: auto; }
+
+.nav a {
+  display: inline-block;
+  margin-right: 10px; }
