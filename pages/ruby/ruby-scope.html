@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>邹鱼 | Ruby 作用域</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="css/application.css">
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <a href="../resume.html">个人介绍</a><a href="../ruby.html">Ruby</a><a href="">Ruby on Rails</a>
+    </div>
+  </header>
+  <pre>
+		# Ruby variable and scope 变量和作用域
+
+		#### 变量
+		1. local variable 局部变量
+		2. global variable 全局变量 $开头
+		3. instance variable 实例变量 @开头 在实例内可用，所有实例方法可访问
+		4. class variable 类变量 @@ 类定义和子类中可用
+		5. def class module 三个关键字定义新的作用域
+
+		6. 实例变量和全局变量无需声明即可使用。
+		7. Ruby的解释器看到局部变量赋值语句，就会在当前scope创建一个局部变量，即使该局部变量处于一个条件语句，并且该条件语句不一定执行
+
+		#### scope gates
+		1. def class module创建了新的scope在此之外的局部变量对新的scope来说不可访问，外面的也不可访问里面定义的局部变量
+		2. Class.new Module.new define_method 可以保持代码在当前scope，此时可以访问当前scope中的局部变量
+		3. 代码块也会创建一个scope，此scope的特点：外层scope定义的局部变量可以在代码块内被访问并且修改其内容，代码块中的变量不可被外层作用域访问。
+		4. 在同一个作用域中出现了同名的方法和局部变量，由于方法可以忽略括号调用，此时掉用方法需要加上括号或者self
+
+		https://www.sitepoint.com/understanding-scope-in-ruby/
+  </pre>
+</body>
+
+</html>
