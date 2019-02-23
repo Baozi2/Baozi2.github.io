@@ -11,6 +11,29 @@ header, section {
   width: 900px;
   margin: auto; }
 
+@media (max-width: 900px) {
+  header, section {
+    width: 100%; } }
 .nav a {
   display: inline-block;
   margin-right: 10px; }
+
+a {
+  text-decoration: none;
+  color: #000; }
+
+a:hover {
+  text-decoration: underline; }
+
+h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px; }
+
+ol {
+  margin-top: 0; }
+
+.posts-list li {
+  margin-bottom: 8px; }
+
+img {
+  width: 100%; }

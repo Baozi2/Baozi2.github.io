@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-02-22T17:06:24+08:00</updated><id>/feed.xml</id><title type="html">🍬邹鱼🐟</title><subtitle>这是🍬邹鱼🐟的个人网站，主要和Ruby、Ruby on Rails、前端、java有关</subtitle><entry><title type="html">Ruby scope</title><link href="/ruby/2019/02/22/ruby-scope.html" rel="alternate" type="text/html" title="Ruby scope" /><published>2019-02-22T00:00:00+08:00</published><updated>2019-02-22T00:00:00+08:00</updated><id>/ruby/2019/02/22/ruby-scope</id><content type="html" xml:base="/ruby/2019/02/22/ruby-scope.html">&lt;h1 id=&quot;ruby-variable-and-scope-变量和作用域&quot;&gt;Ruby variable and scope 变量和作用域&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-02-23T20:56:36+08:00</updated><id>/feed.xml</id><title type="html">🍬邹鱼🐟</title><subtitle>这是🍬邹鱼🐟的个人网站，主要和Ruby、Ruby on Rails、前端、java有关</subtitle><entry><title type="html">Ruby Exception</title><link href="/ruby/2019/02/23/ruby-execption.html" rel="alternate" type="text/html" title="Ruby Exception" /><published>2019-02-23T00:00:00+08:00</published><updated>2019-02-23T00:00:00+08:00</updated><id>/ruby/2019/02/23/ruby-execption</id><content type="html" xml:base="/ruby/2019/02/23/ruby-execption.html">&lt;h1 id=&quot;ruby-异常&quot;&gt;Ruby 异常&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;rescue如果不明确指出要捕获的异常，默认捕获StandardError及其子类
+&lt;img src=&quot;/assets/images/ruby/15498671444192.jpg&quot; alt=&quot;-w621&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;raise如果不指明具体异常类，默认为RuntimeError&lt;/li&gt;
+  &lt;li&gt;rescue可以写多个，从上往下匹配，遇到则停止；注意异常的父子关系，如果父类位于子类上面，则在父类捕获后，子类不会再捕获&lt;/li&gt;
+  &lt;li&gt;raise也可以传入一个exception对象&lt;/li&gt;
+  &lt;li&gt;cancancan的一个例子
+&lt;img src=&quot;/assets/images/ruby//15498691537030.jpg&quot; alt=&quot;-w833&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;Reference:&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.honeybadger.io/a-beginner-s-guide-to-exceptions-in-ruby/&quot; target=&quot;_blank&quot;&gt;exceptions in ruby&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">Ruby 异常 rescue如果不明确指出要捕获的异常，默认捕获StandardError及其子类 raise如果不指明具体异常类，默认为RuntimeError rescue可以写多个，从上往下匹配，遇到则停止；注意异常的父子关系，如果父类位于子类上面，则在父类捕获后，子类不会再捕获 raise也可以传入一个exception对象 cancancan的一个例子</summary></entry><entry><title type="html">Ruby scope</title><link href="/ruby/2019/02/22/ruby-scope.html" rel="alternate" type="text/html" title="Ruby scope" /><published>2019-02-22T00:00:00+08:00</published><updated>2019-02-22T00:00:00+08:00</updated><id>/ruby/2019/02/22/ruby-scope</id><content type="html" xml:base="/ruby/2019/02/22/ruby-scope.html">&lt;h1 id=&quot;ruby-variable-and-scope-变量和作用域&quot;&gt;Ruby variable and scope 变量和作用域&lt;/h1&gt;
 
 &lt;h4 id=&quot;变量&quot;&gt;变量&lt;/h4&gt;
 &lt;ol&gt;

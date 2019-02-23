@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Ruby Exception</title>
+	<link rel="stylesheet" href="/assets/css/application.css" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <meta name="description" content="这是🍬邹鱼🐟的个人网站，主要和Ruby、Ruby on Rails、前端、java有关">
+</head>
+<body><header>
+    <h1>一个全干工程师🍬🐟</h1>
+    <div class="nav">
+			
+			  <a href="/">主页</a>
+			
+			  <a href="/ruby/">Ruby</a>
+			
+			  <a href="/ruby-on-rails/">Ruby on Rails</a>
+			
+    </div>
+  </header>
+<section>
+		<article>
+  <h1 id="ruby-异常">Ruby 异常</h1>
+<ol>
+  <li>rescue如果不明确指出要捕获的异常，默认捕获StandardError及其子类
+<img src="/assets/images/ruby/15498671444192.jpg" alt="-w621" /></li>
+  <li>raise如果不指明具体异常类，默认为RuntimeError</li>
+  <li>rescue可以写多个，从上往下匹配，遇到则停止；注意异常的父子关系，如果父类位于子类上面，则在父类捕获后，子类不会再捕获</li>
+  <li>raise也可以传入一个exception对象</li>
+  <li>cancancan的一个例子
+<img src="/assets/images/ruby//15498691537030.jpg" alt="-w833" /></li>
+</ol>
+
+<h3 id="reference">Reference:</h3>
+<ol>
+  <li><a href="https://blog.honeybadger.io/a-beginner-s-guide-to-exceptions-in-ruby/" target="_blank">exceptions in ruby</a></li>
+</ol>
+
+</article>
+
+	</section>
+</body>
+</html>
