@@ -3,10 +3,18 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>探究require 'bundler/setup'</title>
-	<link rel="stylesheet" href="/assets/css/application.css" />
-	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <title>探究require 'bundler/setup'</title>
+  <link rel="stylesheet" href="/assets/css/application.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
   <meta name="description" content="这是🍬邹鱼🐟的个人网站，主要和Ruby、Ruby on Rails、前端、java有关">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135425528-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-135425528-1');
+  </script>
 </head>
 <body><header>
     <h1>一个全干工程师🍬🐟</h1>
@@ -60,49 +68,52 @@
 </code></pre></div></div>
 
 <ol>
-  <li>在上面的代码中调用了Bundler.setup，这个方法最终调用了如下代码：
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="o">*</span><span class="n">groups</span><span class="p">)</span>
-   <span class="vi">@definition</span><span class="p">.</span><span class="nf">ensure_equivalent_gemfile_and_lockfile</span> <span class="k">if</span> <span class="no">Bundler</span><span class="p">.</span><span class="nf">frozen?</span>
+  <li>在上面的代码中调用了Bundler.setup，这个方法最终调用了如下代码：</li>
+</ol>
 
-   <span class="n">groups</span><span class="p">.</span><span class="nf">map!</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:to_sym</span><span class="p">)</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="o">*</span><span class="n">groups</span><span class="p">)</span>
+      <span class="vi">@definition</span><span class="p">.</span><span class="nf">ensure_equivalent_gemfile_and_lockfile</span> <span class="k">if</span> <span class="no">Bundler</span><span class="p">.</span><span class="nf">frozen?</span>
 
-   <span class="c1"># Has to happen first</span>
-   <span class="n">clean_load_path</span>
+      <span class="n">groups</span><span class="p">.</span><span class="nf">map!</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:to_sym</span><span class="p">)</span>
 
-   <span class="n">specs</span> <span class="o">=</span> <span class="n">groups</span><span class="p">.</span><span class="nf">any?</span> <span class="p">?</span> <span class="vi">@definition</span><span class="p">.</span><span class="nf">specs_for</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span> <span class="p">:</span> <span class="n">requested_specs</span>
+      <span class="c1"># Has to happen first</span>
+      <span class="n">clean_load_path</span>
 
-   <span class="no">SharedHelpers</span><span class="p">.</span><span class="nf">set_bundle_environment</span>
-   <span class="no">Bundler</span><span class="p">.</span><span class="nf">rubygems</span><span class="p">.</span><span class="nf">replace_entrypoints</span><span class="p">(</span><span class="n">specs</span><span class="p">)</span>
+      <span class="n">specs</span> <span class="o">=</span> <span class="n">groups</span><span class="p">.</span><span class="nf">any?</span> <span class="p">?</span> <span class="vi">@definition</span><span class="p">.</span><span class="nf">specs_for</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span> <span class="p">:</span> <span class="n">requested_specs</span>
 
-   <span class="c1"># Activate the specs</span>
-   <span class="n">load_paths</span> <span class="o">=</span> <span class="n">specs</span><span class="p">.</span><span class="nf">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">spec</span><span class="o">|</span>
-     <span class="k">unless</span> <span class="n">spec</span><span class="p">.</span><span class="nf">loaded_from</span>
-       <span class="k">raise</span> <span class="no">GemNotFound</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="n">spec</span><span class="p">.</span><span class="nf">full_name</span><span class="si">}</span><span class="s2"> is missing. Run `bundle install` to get it."</span>
-     <span class="k">end</span>
+      <span class="no">SharedHelpers</span><span class="p">.</span><span class="nf">set_bundle_environment</span>
+      <span class="no">Bundler</span><span class="p">.</span><span class="nf">rubygems</span><span class="p">.</span><span class="nf">replace_entrypoints</span><span class="p">(</span><span class="n">specs</span><span class="p">)</span>
 
-     <span class="n">check_for_activated_spec!</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+      <span class="c1"># Activate the specs</span>
+      <span class="n">load_paths</span> <span class="o">=</span> <span class="n">specs</span><span class="p">.</span><span class="nf">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">spec</span><span class="o">|</span>
+        <span class="k">unless</span> <span class="n">spec</span><span class="p">.</span><span class="nf">loaded_from</span>
+          <span class="k">raise</span> <span class="no">GemNotFound</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="n">spec</span><span class="p">.</span><span class="nf">full_name</span><span class="si">}</span><span class="s2"> is missing. Run `bundle install` to get it."</span>
+        <span class="k">end</span>
 
-     <span class="no">Bundler</span><span class="p">.</span><span class="nf">rubygems</span><span class="p">.</span><span class="nf">mark_loaded</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
-     <span class="n">spec</span><span class="p">.</span><span class="nf">load_paths</span><span class="p">.</span><span class="nf">reject</span> <span class="p">{</span><span class="o">|</span><span class="n">path</span><span class="o">|</span> <span class="vg">$LOAD_PATH</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="p">}</span>
-   <span class="k">end</span><span class="p">.</span><span class="nf">reverse</span><span class="p">.</span><span class="nf">flatten</span>
+        <span class="n">check_for_activated_spec!</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
 
-   <span class="c1"># See Gem::Specification#add_self_to_load_path (since RubyGems 1.8)</span>
-   <span class="k">if</span> <span class="n">insert_index</span> <span class="o">=</span> <span class="no">Bundler</span><span class="p">.</span><span class="nf">rubygems</span><span class="p">.</span><span class="nf">load_path_insert_index</span>
-     <span class="c1"># Gem directories must come after -I and ENV['RUBYLIB']</span>
-     <span class="vg">$LOAD_PATH</span><span class="p">.</span><span class="nf">insert</span><span class="p">(</span><span class="n">insert_index</span><span class="p">,</span> <span class="o">*</span><span class="n">load_paths</span><span class="p">)</span>
-   <span class="k">else</span>
-     <span class="c1"># We are probably testing in core, -I and RUBYLIB don't apply</span>
-     <span class="vg">$LOAD_PATH</span><span class="p">.</span><span class="nf">unshift</span><span class="p">(</span><span class="o">*</span><span class="n">load_paths</span><span class="p">)</span>
-   <span class="k">end</span>
+        <span class="no">Bundler</span><span class="p">.</span><span class="nf">rubygems</span><span class="p">.</span><span class="nf">mark_loaded</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+        <span class="n">spec</span><span class="p">.</span><span class="nf">load_paths</span><span class="p">.</span><span class="nf">reject</span> <span class="p">{</span><span class="o">|</span><span class="n">path</span><span class="o">|</span> <span class="vg">$LOAD_PATH</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="p">}</span>
+      <span class="k">end</span><span class="p">.</span><span class="nf">reverse</span><span class="p">.</span><span class="nf">flatten</span>
 
-   <span class="n">setup_manpath</span>
+      <span class="c1"># See Gem::Specification#add_self_to_load_path (since RubyGems 1.8)</span>
+      <span class="k">if</span> <span class="n">insert_index</span> <span class="o">=</span> <span class="no">Bundler</span><span class="p">.</span><span class="nf">rubygems</span><span class="p">.</span><span class="nf">load_path_insert_index</span>
+        <span class="c1"># Gem directories must come after -I and ENV['RUBYLIB']</span>
+        <span class="vg">$LOAD_PATH</span><span class="p">.</span><span class="nf">insert</span><span class="p">(</span><span class="n">insert_index</span><span class="p">,</span> <span class="o">*</span><span class="n">load_paths</span><span class="p">)</span>
+      <span class="k">else</span>
+        <span class="c1"># We are probably testing in core, -I and RUBYLIB don't apply</span>
+        <span class="vg">$LOAD_PATH</span><span class="p">.</span><span class="nf">unshift</span><span class="p">(</span><span class="o">*</span><span class="n">load_paths</span><span class="p">)</span>
+      <span class="k">end</span>
 
-   <span class="n">lock</span><span class="p">(</span><span class="ss">:preserve_unknown_sections</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">)</span>
+      <span class="n">setup_manpath</span>
 
-   <span class="nb">self</span>
- <span class="k">end</span>
-</code></pre></div>    </div>
-  </li>
+      <span class="n">lock</span><span class="p">(</span><span class="ss">:preserve_unknown_sections</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">)</span>
+
+      <span class="nb">self</span>
+    <span class="k">end</span>
+</code></pre></div></div>
+
+<ol>
   <li>上面代码调用了clean_load_path，这段代码的作用就是清除非bundler的gem</li>
 </ol>
 
