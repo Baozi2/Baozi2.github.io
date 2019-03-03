@@ -3,24 +3,35 @@ html {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Tahoma, Arial, "PingFang SC", "Microsoft YaHei", san-serif;
-  border-top: 4px solid;
-  background: #ffffff; }
+  background: #eee; }
 
-body, blockquote, pre, hr, code, figure {
+body, blockquote, pre, hr, code, figure, h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0; }
 
-header, section {
+header {
+  background-color: #009587;
+  color: #fff; }
+  header a {
+    color: #fff; }
+  header .home {
+    margin-bottom: 1rem; }
+    header .home a:hover {
+      text-decoration: none; }
+
+.wrapper {
   width: 900px;
-  margin: auto; }
+  margin: auto;
+  padding: 2rem 0; }
 
 @media (max-width: 900px) {
-  body {
-    padding-left: 2rem;
-    padding-right: 2rem; }
+  header .home {
+    margin-bottom: .5rem;
+    font-size: 1.2rem; }
 
-  header, section {
-    width: 100%; } }
+  .wrapper {
+    width: auto;
+    padding: 1rem 1.5rem; } }
 .nav a {
   display: inline-block;
   margin-right: 10px; }
@@ -45,6 +56,11 @@ ol {
 
 img {
   width: 100%; }
+
+footer {
+  border-top: 1px solid #C5C0C0; }
+  footer a img {
+    width: 1.5rem; }
 
 pre {
   overflow-x: auto; }
