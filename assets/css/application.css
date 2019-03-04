@@ -59,8 +59,11 @@ img {
 
 footer {
   border-top: 1px solid #C5C0C0; }
-  footer a img {
-    width: 1.5rem; }
+  footer .social a {
+    font-size: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem; }
 
 pre {
   overflow-x: auto; }
