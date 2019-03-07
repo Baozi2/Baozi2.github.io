@@ -1,4 +1,113 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://zoubuzao.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://zoubuzao.com/" rel="alternate" type="text/html" /><updated>2019-03-04T16:07:16+08:00</updated><id>http://zoubuzao.com/feed.xml</id><title type="html">邹鱼 一个全干工程师</title><subtitle>这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关</subtitle><entry><title type="html">探究require ‘bundler/setup’</title><link href="http://zoubuzao.com/bundler/2019/03/02/bundler-setup.html" rel="alternate" type="text/html" title="探究require 'bundler/setup'" /><published>2019-03-02T00:00:00+08:00</published><updated>2019-03-02T00:00:00+08:00</updated><id>http://zoubuzao.com/bundler/2019/03/02/bundler-setup</id><content type="html" xml:base="http://zoubuzao.com/bundler/2019/03/02/bundler-setup.html">&lt;h4 id=&quot;探究require-bundlersetup&quot;&gt;探究&lt;code class=&quot;highlighter-rouge&quot;&gt;require 'bundler/setup'&lt;/code&gt;&lt;/h4&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://zoubuzao.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://zoubuzao.com/" rel="alternate" type="text/html" /><updated>2019-03-07T10:40:15+08:00</updated><id>http://zoubuzao.com/feed.xml</id><title type="html">邹鱼 一个全干工程师</title><subtitle>这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关</subtitle><entry><title type="html">rails View Render</title><link href="http://zoubuzao.com/rails/2019/03/07/view-render.html" rel="alternate" type="text/html" title="rails View Render" /><published>2019-03-07T00:00:00+08:00</published><updated>2019-03-07T00:00:00+08:00</updated><id>http://zoubuzao.com/rails/2019/03/07/view-render</id><content type="html" xml:base="http://zoubuzao.com/rails/2019/03/07/view-render.html">&lt;h1 id=&quot;action-view中使用render渲染局部模板partials&quot;&gt;Action View中使用render渲染局部模板(Partials)&lt;/h1&gt;
+
+&lt;p&gt;在Rails中以_开头的模板被称为局部模板，其最长见的用法如下:&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#表示使用_user.html.erb模板，action中所有的实例变量在模板中可用&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 此种是简写方式&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= render 'user' %&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Partials的所有用法，可以在https://api.rubyonrails.org/ 通过查询&lt;strong&gt;ActionView::PartialRenderer&lt;/strong&gt;获取&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;1-向局部模板中传递局部变量-locals&quot;&gt;1. 向局部模板中传递局部变量: &lt;strong&gt;locals&lt;/strong&gt;&lt;/h4&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 通过locals传递，此时在_user.html.erb中可以使用局部变量account&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= render partial: 'user', locals: { account: @user} %&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;2-object可以传递向模板中传递对象此时在模板中可以使用和模板名称相同的局部变量&quot;&gt;2. object可以传递向模板中传递对象，此时在模板中可以使用和模板名称相同的局部变量&lt;/h4&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 此时在_user.html.erb中可以使用局部变量user&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= render partial: 'user', object: @account %&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;3-as&quot;&gt;3. as&lt;/h4&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# as可以修改局部变量名称&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= render partial: 'user', object: @account, as: 'account' %&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;4-渲染集合-collection&quot;&gt;4. 渲染集合 collection&lt;/h4&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 此时渲染_user.hmtl.erb并传递一个user局部变量&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= render partial: 'user', collection: @users %&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;5-spacer_template-渲染集合时在两个局部模板之间插入内容&quot;&gt;5. spacer_template 渲染集合时在两个局部模板之间插入内容&lt;/h4&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 在两个_user.html.erb模板间会插入_ad.html.erb&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= render partial: &quot;user&quot;, collection: @users, spacer_template: &quot;ad&quot; %&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;6-集合为nil或emptyrender会返回nil&quot;&gt;6. 集合为nil或empty，render会返回nil&lt;/h4&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 此时可以通过如下方式显示空内容&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= render(partial: 'user', collection: @users) || 'No user' %&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;7-响应to_partial_path的对象&quot;&gt;7. 响应to_partial_path的对象&lt;/h4&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 如果@user对象能响应to_partial_path方法，根据该返回值渲染模板&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;lt;%= render partial: users/user, locals: { user: @user } %&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= render partial: @user %&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#集合&amp;lt;%= render partial: &quot;posts/post&quot;, collection: @posts %&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= render partial: @posts %&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;8-局部模板可以在不同action间共享只要路径正确即可&quot;&gt;8. 局部模板可以在不同action间共享，只要路径正确即可&lt;/h4&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;err&quot;&gt;在&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PostsController&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;的&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;中使用&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;erb&lt;/span&gt;
+ &lt;span class=&quot;c1&quot;&gt;#&amp;lt;%= render partial: 'users/user', locals: { user: @post.user} %&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;9-默认情况&quot;&gt;9. 默认情况&lt;/h4&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c1&quot;&gt;#&amp;lt;%= render partial: 'user' %&amp;gt;的默认情况&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= render 'user' %&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c1&quot;&gt;#&amp;lt;%= render partial: 'user', locals: { account: @user } %&amp;gt;的默认情况&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= render 'user', account: @user %&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c1&quot;&gt;#&amp;lt;%= render partial: 'users/user', locals: { user: @user } %&amp;gt;的默认情况&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= render @user %&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c1&quot;&gt;#&amp;lt;%= render partial: 'users/user', collection: @users %&amp;gt;的默认情况&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= render @users %&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;10-使用layout&quot;&gt;10. 使用layout&lt;/h4&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%# app/views/users/index.html.erb %&amp;gt;
+Here's the administrator:
+&amp;lt;%= render partial: &quot;user&quot;, layout: &quot;administrator&quot;, locals: { user: administrator } %&amp;gt;
+
+Here's the editor:
+&amp;lt;%= render partial: &quot;user&quot;, layout: &quot;editor&quot;, locals: { user: editor } %&amp;gt;
+
+&amp;lt;%#&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;erb&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%&amp;gt;
+Name: &amp;lt;%= user.name %&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%# app/views/users/_administrator.html.erb %&amp;gt;
+&amp;lt;div id=&quot;administrator&quot;&amp;gt;
+  Budget: $&amp;lt;%= user.budget %&amp;gt;
+  &amp;lt;%= yield %&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;%#&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_editor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;erb&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%&amp;gt;
+&amp;lt;div id=&quot;editor&quot;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;Deadline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= user.deadline %&amp;gt;
+  &amp;lt;%=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;…this will return:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Here&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'s the administrator:
+&amp;lt;div id=&quot;administrator&quot;&amp;gt;
+  Budget: $&amp;lt;%= user.budget %&amp;gt;
+  Name: &amp;lt;%= user.name %&amp;gt;
+&amp;lt;/div&amp;gt;
+
+Here'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;editor:
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;editor&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;Deadline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= user.deadline %&amp;gt;
+  Name: &amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Action View中使用render渲染局部模板(Partials)</summary></entry><entry><title type="html">探究require ‘bundler/setup’</title><link href="http://zoubuzao.com/bundler/2019/03/02/bundler-setup.html" rel="alternate" type="text/html" title="探究require 'bundler/setup'" /><published>2019-03-02T00:00:00+08:00</published><updated>2019-03-02T00:00:00+08:00</updated><id>http://zoubuzao.com/bundler/2019/03/02/bundler-setup</id><content type="html" xml:base="http://zoubuzao.com/bundler/2019/03/02/bundler-setup.html">&lt;h4 id=&quot;探究require-bundlersetup&quot;&gt;探究&lt;code class=&quot;highlighter-rouge&quot;&gt;require 'bundler/setup'&lt;/code&gt;&lt;/h4&gt;
 
 &lt;p&gt;概括来说&lt;code class=&quot;highlighter-rouge&quot;&gt;require 'bundler/setup'&lt;/code&gt;，移除$LOAD_PATH中除了bundler所有gem，然后将Gemfile中的gem加入$LOAD_PATH。
 这是此段代码的主要作用。&lt;/p&gt;
