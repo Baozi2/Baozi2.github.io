@@ -10,7 +10,8 @@ body, blockquote, pre, hr, code, figure, h1, h2, h3, h4, h5, h6 {
   padding: 0; }
 
 header {
-  background-color: #009587;
+  /*background-color: #009587;*/
+  background: #312b2b;
   color: #fff; }
   header a {
     color: #fff; }
