@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://zoubuzao.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://zoubuzao.com/" rel="alternate" type="text/html" /><updated>2019-03-07T14:01:21+08:00</updated><id>http://zoubuzao.com/feed.xml</id><title type="html">邹鱼 一个全干工程师</title><subtitle>这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关</subtitle><entry><title type="html">rails View Render</title><link href="http://zoubuzao.com/rails/2019/03/07/view-render.html" rel="alternate" type="text/html" title="rails View Render" /><published>2019-03-07T00:00:00+08:00</published><updated>2019-03-07T00:00:00+08:00</updated><id>http://zoubuzao.com/rails/2019/03/07/view-render</id><content type="html" xml:base="http://zoubuzao.com/rails/2019/03/07/view-render.html">&lt;h1 id=&quot;action-view中使用render渲染局部模板partials&quot;&gt;Action View中使用render渲染局部模板(Partials)&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://zoubuzao.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://zoubuzao.com/" rel="alternate" type="text/html" /><updated>2019-03-28T09:27:15+08:00</updated><id>http://zoubuzao.com/feed.xml</id><title type="html">邹鱼 一个全干工程师</title><subtitle>这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关</subtitle><entry><title type="html">JavaScript Event</title><link href="http://zoubuzao.com/frontend/2019/03/28/event.html" rel="alternate" type="text/html" title="JavaScript Event" /><published>2019-03-28T00:00:00+08:00</published><updated>2019-03-28T00:00:00+08:00</updated><id>http://zoubuzao.com/frontend/2019/03/28/event</id><content type="html" xml:base="http://zoubuzao.com/frontend/2019/03/28/event.html">&lt;p&gt;Event表示了一个在DOM发生的一个事件&lt;/p&gt;
+
+&lt;p&gt;在事件处理函数中有个默认的参数即为event。事件处理函数中的this表示事件被注册的DOM对象，
+event.target表示触发事件的对象，event.currentTarget表示事件注册的DOM对象和this相等。
+由于冒泡机制event.target和event.currentTarget不一定相等。
+示例代码：&lt;/p&gt;
+
+&lt;p class=&quot;codepen&quot; data-height=&quot;265&quot; data-theme-id=&quot;0&quot; data-default-tab=&quot;js,result&quot; data-user=&quot;zouyu&quot; data-slug-hash=&quot;ywdEPB&quot; style=&quot;height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;&quot; data-pen-title=&quot;show event target currentTarget&quot;&gt;
+  &lt;span&gt;See the Pen &lt;a href=&quot;https://codepen.io/zouyu/pen/ywdEPB/&quot;&gt;
+  show event target currentTarget&lt;/a&gt; by Xiu (&lt;a href=&quot;https://codepen.io/zouyu&quot;&gt;@zouyu&lt;/a&gt;)
+  on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;Reference:&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Event&quot; target=&quot;_blank&quot;&gt;Event&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers&quot; target=&quot;_blank&quot;&gt;DOM on-event handlers&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">Event表示了一个在DOM发生的一个事件</summary></entry><entry><title type="html">rails View Render</title><link href="http://zoubuzao.com/rails/2019/03/07/view-render.html" rel="alternate" type="text/html" title="rails View Render" /><published>2019-03-07T00:00:00+08:00</published><updated>2019-03-07T00:00:00+08:00</updated><id>http://zoubuzao.com/rails/2019/03/07/view-render</id><content type="html" xml:base="http://zoubuzao.com/rails/2019/03/07/view-render.html">&lt;h1 id=&quot;action-view中使用render渲染局部模板partials&quot;&gt;Action View中使用render渲染局部模板(Partials)&lt;/h1&gt;
 
 &lt;p&gt;在Rails中以_开头的模板被称为局部模板，其最长见的用法如下:&lt;/p&gt;
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#表示使用_user.html.erb模板，action中所有的实例变量在模板中可用&lt;/span&gt;
