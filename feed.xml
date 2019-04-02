@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://zoubuzao.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://zoubuzao.com/" rel="alternate" type="text/html" /><updated>2019-03-28T09:27:15+08:00</updated><id>http://zoubuzao.com/feed.xml</id><title type="html">邹鱼 一个全干工程师</title><subtitle>这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关</subtitle><entry><title type="html">JavaScript Event</title><link href="http://zoubuzao.com/frontend/2019/03/28/event.html" rel="alternate" type="text/html" title="JavaScript Event" /><published>2019-03-28T00:00:00+08:00</published><updated>2019-03-28T00:00:00+08:00</updated><id>http://zoubuzao.com/frontend/2019/03/28/event</id><content type="html" xml:base="http://zoubuzao.com/frontend/2019/03/28/event.html">&lt;p&gt;Event表示了一个在DOM发生的一个事件&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://zoubuzao.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://zoubuzao.com/" rel="alternate" type="text/html" /><updated>2019-04-02T21:09:00+08:00</updated><id>http://zoubuzao.com/feed.xml</id><title type="html">邹鱼 一个全干工程师</title><subtitle>这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关</subtitle><entry><title type="html">rails 根据ActiveRecord动态创建路由</title><link href="http://zoubuzao.com/rails/2019/04/02/view-render.html" rel="alternate" type="text/html" title="rails 根据ActiveRecord动态创建路由" /><published>2019-04-02T00:00:00+08:00</published><updated>2019-04-02T00:00:00+08:00</updated><id>http://zoubuzao.com/rails/2019/04/02/view-render</id><content type="html" xml:base="http://zoubuzao.com/rails/2019/04/02/view-render.html">&lt;p&gt;使用ActionDispatch::Routing::PolymorphicRoutes中提供的方法根据AR动态创建路由，以下为官方文档：&lt;/p&gt;
+
+&lt;p&gt;
+Polymorphic URL helpers are methods for smart resolution to a named route call when given an Active Record model instance. They are to be used in combination with ActionController::Resources.
+&lt;/p&gt;
+&lt;p&gt;
+These methods are useful when you want to generate the correct URL or path to a RESTful resource without having to know the exact type of the record in question.
+&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;以上的前提：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;RESTful resource&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;提供的方法&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;polymorphic_url/polymorphic_path&lt;/li&gt;
+  &lt;li&gt;edit_polymorphic_url/edit_polymorphic_path&lt;/li&gt;
+  &lt;li&gt;new_polymorphic_url/new_polymorphic_url&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;例子&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. polymorphic_path User =&amp;gt; /users
+2. polymorphic_path @user =&amp;gt; /users/1
+3. new_polymorphic_path User =&amp;gt; /users/new
+3. edit_polymorphic_path User =&amp;gt; /users/1/edit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">使用ActionDispatch::Routing::PolymorphicRoutes中提供的方法根据AR动态创建路由，以下为官方文档：</summary></entry><entry><title type="html">JavaScript Event</title><link href="http://zoubuzao.com/frontend/2019/03/28/event.html" rel="alternate" type="text/html" title="JavaScript Event" /><published>2019-03-28T00:00:00+08:00</published><updated>2019-03-28T00:00:00+08:00</updated><id>http://zoubuzao.com/frontend/2019/03/28/event</id><content type="html" xml:base="http://zoubuzao.com/frontend/2019/03/28/event.html">&lt;p&gt;Event表示了一个在DOM发生的一个事件&lt;/p&gt;
 
 &lt;p&gt;在事件处理函数中有个默认的参数即为event。事件处理函数中的this表示事件被注册的DOM对象，
 event.target表示触发事件的对象，event.currentTarget表示事件注册的DOM对象和this相等。
