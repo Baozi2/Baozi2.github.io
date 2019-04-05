@@ -3,17 +3,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>ruby on rails | 邹鱼 一个全干工程师</title>
+<title>rails CSRF | 邹鱼 一个全干工程师</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="ruby on rails" />
+<meta property="og:title" content="rails CSRF" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关" />
-<meta property="og:description" content="这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关" />
-<link rel="canonical" href="http://zoubuzao.com/ruby-on-rails/" />
-<meta property="og:url" content="http://zoubuzao.com/ruby-on-rails/" />
+<meta name="description" content="Rails中的CSRF rails的ActionController::RequestForgeryProtection，处理CSRF" />
+<meta property="og:description" content="Rails中的CSRF rails的ActionController::RequestForgeryProtection，处理CSRF" />
+<link rel="canonical" href="http://zoubuzao.com/rails/2019/04/05/csrf.html" />
+<meta property="og:url" content="http://zoubuzao.com/rails/2019/04/05/csrf.html" />
 <meta property="og:site_name" content="邹鱼 一个全干工程师" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-04-05T00:00:00+08:00" />
 <script type="application/ld+json">
-{"url":"http://zoubuzao.com/ruby-on-rails/","headline":"ruby on rails","description":"这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关","@type":"WebPage","@context":"http://schema.org"}</script>
+{"url":"http://zoubuzao.com/rails/2019/04/05/csrf.html","headline":"rails CSRF","dateModified":"2019-04-05T00:00:00+08:00","datePublished":"2019-04-05T00:00:00+08:00","description":"Rails中的CSRF rails的ActionController::RequestForgeryProtection，处理CSRF","mainEntityOfPage":{"@type":"WebPage","@id":"http://zoubuzao.com/rails/2019/04/05/csrf.html"},"@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/application.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
@@ -46,17 +48,21 @@
 </header>
 <section>
     <div class="wrapper">
-      
-<ol>
-  
-    <li><a href="/rails/2019/04/05/csrf.html">rails CSRF</a></li>
-  
-    <li><a href="/rails/2019/04/02/view-render.html">rails 根据ActiveRecord动态创建路由</a></li>
-  
-    <li><a href="/rails/2019/03/07/view-render.html">rails View Render</a></li>
-  	
-  </ol>
+      <article>
+  <h1 id="rails中的csrf">Rails中的CSRF</h1>
+<blockquote>
+  <p>rails的ActionController::RequestForgeryProtection，处理CSRF</p>
+</blockquote>
 
+<ol>
+  <li>至少从rails 4.1.7开始，只对XMLHttpRequest的get请求不做验证。对于跨源的script的src造成的请求默认阻止。
+<a href="https://api.rubyonrails.org/v4.1.7/classes/ActionController/RequestForgeryProtection.html">RequestForgeryProtection.html</a></li>
+  <li>在Rails5中<strong>protect_from_forgery</strong>默认启用。</li>
+</ol>
+
+<iframe src="https://api.rubyonrails.org/v4.1.7/classes/ActionController/RequestForgeryProtection.html" style="width:100%;height: 50vh;"></iframe>
+
+</article>
 
     </div>
   </section><footer>
