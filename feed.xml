@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://zoubuzao.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://zoubuzao.com/" rel="alternate" type="text/html" /><updated>2019-04-11T14:26:44+08:00</updated><id>http://zoubuzao.com/feed.xml</id><title type="html">邹鱼 一个全干工程师</title><subtitle>这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关</subtitle><entry><title type="html">JavaScript 正则表达式</title><link href="http://zoubuzao.com/frontend/2019/04/11/regular-expression.html" rel="alternate" type="text/html" title="JavaScript 正则表达式" /><published>2019-04-11T00:00:00+08:00</published><updated>2019-04-11T00:00:00+08:00</updated><id>http://zoubuzao.com/frontend/2019/04/11/regular-expression</id><content type="html" xml:base="http://zoubuzao.com/frontend/2019/04/11/regular-expression.html">&lt;p&gt;JavaScript中的正则表达式对象在执行全局搜索时，其lastIndex属性会记录对同一字符串下次的搜索位置，此时对同一字符串执行两次搜索结果会出现不符合直觉上预期的方式。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://zoubuzao.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://zoubuzao.com/" rel="alternate" type="text/html" /><updated>2019-04-18T09:05:01+08:00</updated><id>http://zoubuzao.com/feed.xml</id><title type="html">邹鱼 一个全干工程师</title><subtitle>这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关</subtitle><entry><title type="html">Ruby socket simple server</title><link href="http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html" rel="alternate" type="text/html" title="Ruby socket simple server" /><published>2019-04-18T00:00:00+08:00</published><updated>2019-04-18T00:00:00+08:00</updated><id>http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1</id><content type="html" xml:base="http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;require 'socket'
+
+# 创建
+server = Socket.new(:INET, :STREAM)
+addr = Socket.pack_sockaddr_in(4444, '0.0.0.0')
+# 绑定
+server.bind(addr)
+# 监听
+server.listen(5)
+# 接受
+loop do
+	connection, _ = server.accept
+	# 处理连接
+	# 读取数据
+	p connection.read
+	# 发送数据
+	connection.write('ACK')
+	# 关闭
+	connection.close
+end
+# 关闭server
+server.close
+
+# 以上代码可以使用如下语法糖
+Socket.tcp_server_loop(4444, '0.0.0.0') do |connection|
+	p connection.read
+	# 发送数据
+	connection.write('ACK')
+	connection.close
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">~~~ require ‘socket’</summary></entry><entry><title type="html">JavaScript 正则表达式</title><link href="http://zoubuzao.com/frontend/2019/04/11/regular-expression.html" rel="alternate" type="text/html" title="JavaScript 正则表达式" /><published>2019-04-11T00:00:00+08:00</published><updated>2019-04-11T00:00:00+08:00</updated><id>http://zoubuzao.com/frontend/2019/04/11/regular-expression</id><content type="html" xml:base="http://zoubuzao.com/frontend/2019/04/11/regular-expression.html">&lt;p&gt;JavaScript中的正则表达式对象在执行全局搜索时，其lastIndex属性会记录对同一字符串下次的搜索位置，此时对同一字符串执行两次搜索结果会出现不符合直觉上预期的方式。&lt;/p&gt;
 
 &lt;p&gt;解决办法：1. 使用字符串的match方法 2. 手动设置lastIndex为0&lt;/p&gt;
 

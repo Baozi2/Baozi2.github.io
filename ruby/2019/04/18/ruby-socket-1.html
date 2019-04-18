@@ -3,17 +3,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Ruby | 邹鱼 一个全干工程师</title>
+<title>Ruby socket simple server | 邹鱼 一个全干工程师</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Ruby" />
+<meta property="og:title" content="Ruby socket simple server" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="文章列表 Ruby socket simple server Ruby Exception Ruby scope" />
-<meta property="og:description" content="文章列表 Ruby socket simple server Ruby Exception Ruby scope" />
-<link rel="canonical" href="http://zoubuzao.com/ruby/" />
-<meta property="og:url" content="http://zoubuzao.com/ruby/" />
+<meta name="description" content="~~~ require ‘socket’" />
+<meta property="og:description" content="~~~ require ‘socket’" />
+<link rel="canonical" href="http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html" />
+<meta property="og:url" content="http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html" />
 <meta property="og:site_name" content="邹鱼 一个全干工程师" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-04-18T00:00:00+08:00" />
 <script type="application/ld+json">
-{"url":"http://zoubuzao.com/ruby/","headline":"Ruby","description":"文章列表 Ruby socket simple server Ruby Exception Ruby scope","@type":"WebPage","@context":"http://schema.org"}</script>
+{"url":"http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html","headline":"Ruby socket simple server","dateModified":"2019-04-18T00:00:00+08:00","datePublished":"2019-04-18T00:00:00+08:00","description":"~~~ require ‘socket’","mainEntityOfPage":{"@type":"WebPage","@id":"http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html"},"@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/application.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
@@ -46,22 +48,40 @@
 </header>
 <section>
     <div class="wrapper">
-      <h4>文章列表</h4>
-<ol class="posts-list">
+      <article>
+  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>require 'socket'
 
-	<li><a href="/ruby/2019/04/18/ruby-socket-1.html">Ruby socket simple server</a></li>
+# 创建
+server = Socket.new(:INET, :STREAM)
+addr = Socket.pack_sockaddr_in(4444, '0.0.0.0')
+# 绑定
+server.bind(addr)
+# 监听
+server.listen(5)
+# 接受
+loop do
+	connection, _ = server.accept
+	# 处理连接
+	# 读取数据
+	p connection.read
+	# 发送数据
+	connection.write('ACK')
+	# 关闭
+	connection.close
+end
+# 关闭server
+server.close
 
-	<li><a href="/ruby/2019/02/23/ruby-execption.html">Ruby Exception</a></li>
+# 以上代码可以使用如下语法糖
+Socket.tcp_server_loop(4444, '0.0.0.0') do |connection|
+	p connection.read
+	# 发送数据
+	connection.write('ACK')
+	connection.close
+end
+</code></pre></div></div>
 
-	<li><a href="/ruby/2019/02/22/ruby-scope.html">Ruby scope</a></li>
-	
-</ol>
-
-<hr />
-<h4>系列</h4>
-<ol class="posts-list">
-	<li><a href="/ruby/bundler/">bundler</a></li>
-</ol>
+</article>
 
     </div>
   </section><footer>
