@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://zoubuzao.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://zoubuzao.com/" rel="alternate" type="text/html" /><updated>2019-04-18T10:01:10+08:00</updated><id>http://zoubuzao.com/feed.xml</id><title type="html">邹鱼 一个全干工程师</title><subtitle>这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关</subtitle><entry><title type="html">转载 Ruby block</title><link href="http://zoubuzao.com/ruby/2019/04/18/ruby-block.html" rel="alternate" type="text/html" title="转载 Ruby block" /><published>2019-04-18T00:00:00+08:00</published><updated>2019-04-18T00:00:00+08:00</updated><id>http://zoubuzao.com/ruby/2019/04/18/ruby-block</id><content type="html" xml:base="http://zoubuzao.com/ruby/2019/04/18/ruby-block.html">&lt;p&gt;一篇比较容易理解的讲述ruby block
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://zoubuzao.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://zoubuzao.com/" rel="alternate" type="text/html" /><updated>2019-04-18T11:24:18+08:00</updated><id>http://zoubuzao.com/feed.xml</id><title type="html">邹鱼 一个全干工程师</title><subtitle>这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关</subtitle><entry><title type="html">Ruby method arguments 方法参数</title><link href="http://zoubuzao.com/ruby/2019/04/18/ruby-method-argument.html" rel="alternate" type="text/html" title="Ruby method arguments 方法参数" /><published>2019-04-18T00:00:00+08:00</published><updated>2019-04-18T00:00:00+08:00</updated><id>http://zoubuzao.com/ruby/2019/04/18/ruby-method-argument</id><content type="html" xml:base="http://zoubuzao.com/ruby/2019/04/18/ruby-method-argument.html">&lt;p&gt;可使用的参数：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;必须参数 args&lt;/li&gt;
+  &lt;li&gt;可选参数 args=4&lt;/li&gt;
+  &lt;li&gt;变长参数 **args&lt;/li&gt;
+  &lt;li&gt;关键字参数 args: args: 4&lt;/li&gt;
+  &lt;li&gt;block参数(将传入的block装换为一个Proc对象)
+    &lt;blockquote&gt;
+      &lt;p&gt;这些参数推荐的顺序为 必选参数-&amp;gt; 可选参数-&amp;gt; 变长参数 -&amp;gt; 关键词参数 -&amp;gt; 变长关键词参数 -&amp;gt; block参数&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;注意：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;block参数必需为最后一个参数&lt;/li&gt;
+  &lt;li&gt;关键词参数放于普通参数之后&lt;/li&gt;
+  &lt;li&gt;变长关键词参数放于关键词参数之后&lt;/li&gt;
+  &lt;li&gt;变长参数放于可选参数之后&lt;/li&gt;
+  &lt;li&gt;变长参数可以放于必选参数前中后&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;以下为一个例子&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def method(a, b=2, *c, d:, e: 5, **f, &amp;amp;block)
+  p a
+  p b
+  p c
+  p d
+  p e
+  p f
+  p block
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">可使用的参数： 必须参数 args 可选参数 args=4 变长参数 **args 关键字参数 args: args: 4 block参数(将传入的block装换为一个Proc对象) 这些参数推荐的顺序为 必选参数-&amp;gt; 可选参数-&amp;gt; 变长参数 -&amp;gt; 关键词参数 -&amp;gt; 变长关键词参数 -&amp;gt; block参数</summary></entry><entry><title type="html">转载 Ruby block</title><link href="http://zoubuzao.com/ruby/2019/04/18/ruby-block.html" rel="alternate" type="text/html" title="转载 Ruby block" /><published>2019-04-18T00:00:00+08:00</published><updated>2019-04-18T00:00:00+08:00</updated><id>http://zoubuzao.com/ruby/2019/04/18/ruby-block</id><content type="html" xml:base="http://zoubuzao.com/ruby/2019/04/18/ruby-block.html">&lt;p&gt;一篇比较容易理解的讲述ruby block
 &lt;a href=&quot;https://mixandgo.com/learn/mastering-ruby-blocks-in-less-than-5-minutes&quot; target=&quot;_blank&quot;&gt;转载&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">一篇比较容易理解的讲述ruby block 转载</summary></entry><entry><title type="html">Ruby socket simple server</title><link href="http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html" rel="alternate" type="text/html" title="Ruby socket simple server" /><published>2019-04-18T00:00:00+08:00</published><updated>2019-04-18T00:00:00+08:00</updated><id>http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1</id><content type="html" xml:base="http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;require 'socket'
 
 # 创建
@@ -327,30 +359,4 @@ Here'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=
 &lt;h3 id=&quot;reference&quot;&gt;Reference:&lt;/h3&gt;
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;https://blog.honeybadger.io/a-beginner-s-guide-to-exceptions-in-ruby/&quot; target=&quot;_blank&quot;&gt;exceptions in ruby&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><summary type="html">Ruby 异常 rescue如果不明确指出要捕获的异常，默认捕获StandardError及其子类 raise如果不指明具体异常类，默认为RuntimeError rescue可以写多个，从上往下匹配，遇到则停止；注意异常的父子关系，如果父类位于子类上面，则在父类捕获后，子类不会再捕获 raise也可以传入一个exception对象 cancancan的一个例子</summary></entry><entry><title type="html">Ruby scope</title><link href="http://zoubuzao.com/ruby/2019/02/22/ruby-scope.html" rel="alternate" type="text/html" title="Ruby scope" /><published>2019-02-22T00:00:00+08:00</published><updated>2019-02-22T00:00:00+08:00</updated><id>http://zoubuzao.com/ruby/2019/02/22/ruby-scope</id><content type="html" xml:base="http://zoubuzao.com/ruby/2019/02/22/ruby-scope.html">&lt;h1 id=&quot;ruby-variable-and-scope-变量和作用域&quot;&gt;Ruby variable and scope 变量和作用域&lt;/h1&gt;
-
-&lt;h4 id=&quot;变量&quot;&gt;变量&lt;/h4&gt;
-&lt;ol&gt;
-  &lt;li&gt;local variable 局部变量&lt;/li&gt;
-  &lt;li&gt;global variable 全局变量 $开头&lt;/li&gt;
-  &lt;li&gt;instance variable 实例变量 @开头 在实例内可用，所有实例方法可访问&lt;/li&gt;
-  &lt;li&gt;class variable 类变量 @@ 类定义和子类中可用&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;def class module 三个关键字定义新的作用域&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;实例变量和全局变量无需声明即可使用。&lt;/li&gt;
-  &lt;li&gt;Ruby的解释器看到局部变量赋值语句，就会在当前scope创建一个局部变量，即使该局部变量处于一个条件语句，并且该条件语句不一定执行&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;scope-gates&quot;&gt;scope gates&lt;/h4&gt;
-&lt;ol&gt;
-  &lt;li&gt;def class module创建了新的scope在此之外的局部变量对新的scope来说不可访问，外面的也不可访问里面定义的局部变量&lt;/li&gt;
-  &lt;li&gt;Class.new Module.new define_method 可以保持代码在当前scope，此时可以访问当前scope中的局部变量&lt;/li&gt;
-  &lt;li&gt;代码块也会创建一个scope，此scope的特点：外层scope定义的局部变量可以在代码块内被访问并且修改其内容，代码块中的变量不可被外层作用域访问。&lt;/li&gt;
-  &lt;li&gt;在同一个作用域中出现了同名的方法和局部变量，由于方法可以忽略括号调用，此时掉用方法需要加上括号或者self&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;reference&quot;&gt;Reference:&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.sitepoint.com/understanding-scope-in-ruby/&quot; target=&quot;_blank&quot;&gt;understanding-scope-in-ruby&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><summary type="html">Ruby variable and scope 变量和作用域</summary></entry></feed>
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">Ruby 异常 rescue如果不明确指出要捕获的异常，默认捕获StandardError及其子类 raise如果不指明具体异常类，默认为RuntimeError rescue可以写多个，从上往下匹配，遇到则停止；注意异常的父子关系，如果父类位于子类上面，则在父类捕获后，子类不会再捕获 raise也可以传入一个exception对象 cancancan的一个例子</summary></entry></feed>
