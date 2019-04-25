@@ -72,6 +72,9 @@ pre {
 /**
  * Syntax highlighting styles
  */
+pre.highlight {
+  padding: 1rem; }
+
 .highlight table td {
   padding: 5px; }
 

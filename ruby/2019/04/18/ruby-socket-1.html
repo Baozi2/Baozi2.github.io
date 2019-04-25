@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v3.8.5" />
 <meta property="og:title" content="Ruby socket simple server" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="~~~ require ‘socket’" />
-<meta property="og:description" content="~~~ require ‘socket’" />
+<meta name="description" content="```ruby require ‘socket’" />
+<meta property="og:description" content="```ruby require ‘socket’" />
 <link rel="canonical" href="http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html" />
 <meta property="og:url" content="http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html" />
 <meta property="og:site_name" content="邹鱼 一个全干工程师" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-04-18T00:00:00+08:00" />
 <script type="application/ld+json">
-{"url":"http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html","headline":"Ruby socket simple server","dateModified":"2019-04-18T00:00:00+08:00","datePublished":"2019-04-18T00:00:00+08:00","description":"~~~ require ‘socket’","mainEntityOfPage":{"@type":"WebPage","@id":"http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html"},"@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"url":"http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html","headline":"Ruby socket simple server","dateModified":"2019-04-18T00:00:00+08:00","datePublished":"2019-04-18T00:00:00+08:00","description":"```ruby require ‘socket’","mainEntityOfPage":{"@type":"WebPage","@id":"http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html"},"@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/application.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
@@ -49,36 +49,36 @@
 <section>
     <div class="wrapper">
       <article>
-  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>require 'socket'
+  <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'socket'</span>
 
-# 创建
-server = Socket.new(:INET, :STREAM)
-addr = Socket.pack_sockaddr_in(4444, '0.0.0.0')
-# 绑定
-server.bind(addr)
-# 监听
-server.listen(5)
-# 接受
-loop do
-	connection, _ = server.accept
-	# 处理连接
-	# 读取数据
-	p connection.read
-	# 发送数据
-	connection.write('ACK')
-	# 关闭
-	connection.close
-end
-# 关闭server
-server.close
+<span class="c1"># 创建</span>
+<span class="n">server</span> <span class="o">=</span> <span class="no">Socket</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:INET</span><span class="p">,</span> <span class="ss">:STREAM</span><span class="p">)</span>
+<span class="n">addr</span> <span class="o">=</span> <span class="no">Socket</span><span class="p">.</span><span class="nf">pack_sockaddr_in</span><span class="p">(</span><span class="mi">4444</span><span class="p">,</span> <span class="s1">'0.0.0.0'</span><span class="p">)</span>
+<span class="c1"># 绑定</span>
+<span class="n">server</span><span class="p">.</span><span class="nf">bind</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+<span class="c1"># 监听</span>
+<span class="n">server</span><span class="p">.</span><span class="nf">listen</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1"># 接受</span>
+<span class="kp">loop</span> <span class="k">do</span>
+	<span class="n">connection</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">server</span><span class="p">.</span><span class="nf">accept</span>
+	<span class="c1"># 处理连接</span>
+	<span class="c1"># 读取数据</span>
+	<span class="nb">p</span> <span class="n">connection</span><span class="p">.</span><span class="nf">read</span>
+	<span class="c1"># 发送数据</span>
+	<span class="n">connection</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s1">'ACK'</span><span class="p">)</span>
+	<span class="c1"># 关闭</span>
+	<span class="n">connection</span><span class="p">.</span><span class="nf">close</span>
+<span class="k">end</span>
+<span class="c1"># 关闭server</span>
+<span class="n">server</span><span class="p">.</span><span class="nf">close</span>
 
-# 以上代码可以使用如下语法糖
-Socket.tcp_server_loop(4444, '0.0.0.0') do |connection|
-	p connection.read
-	# 发送数据
-	connection.write('ACK')
-	connection.close
-end
+<span class="c1"># 以上代码可以使用如下语法糖</span>
+<span class="no">Socket</span><span class="p">.</span><span class="nf">tcp_server_loop</span><span class="p">(</span><span class="mi">4444</span><span class="p">,</span> <span class="s1">'0.0.0.0'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">connection</span><span class="o">|</span>
+	<span class="nb">p</span> <span class="n">connection</span><span class="p">.</span><span class="nf">read</span>
+	<span class="c1"># 发送数据</span>
+	<span class="n">connection</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s1">'ACK'</span><span class="p">)</span>
+	<span class="n">connection</span><span class="p">.</span><span class="nf">close</span>
+<span class="k">end</span>
 </code></pre></div></div>
 
 </article>

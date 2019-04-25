@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://zoubuzao.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://zoubuzao.com/" rel="alternate" type="text/html" /><updated>2019-04-18T11:24:18+08:00</updated><id>http://zoubuzao.com/feed.xml</id><title type="html">邹鱼 一个全干工程师</title><subtitle>这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关</subtitle><entry><title type="html">Ruby method arguments 方法参数</title><link href="http://zoubuzao.com/ruby/2019/04/18/ruby-method-argument.html" rel="alternate" type="text/html" title="Ruby method arguments 方法参数" /><published>2019-04-18T00:00:00+08:00</published><updated>2019-04-18T00:00:00+08:00</updated><id>http://zoubuzao.com/ruby/2019/04/18/ruby-method-argument</id><content type="html" xml:base="http://zoubuzao.com/ruby/2019/04/18/ruby-method-argument.html">&lt;p&gt;可使用的参数：&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://zoubuzao.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://zoubuzao.com/" rel="alternate" type="text/html" /><updated>2019-04-25T13:52:05+08:00</updated><id>http://zoubuzao.com/feed.xml</id><title type="html">邹鱼 一个全干工程师</title><subtitle>这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关</subtitle><entry><title type="html">Ruby method arguments 方法参数</title><link href="http://zoubuzao.com/ruby/2019/04/18/ruby-method-argument.html" rel="alternate" type="text/html" title="Ruby method arguments 方法参数" /><published>2019-04-18T00:00:00+08:00</published><updated>2019-04-18T00:00:00+08:00</updated><id>http://zoubuzao.com/ruby/2019/04/18/ruby-method-argument</id><content type="html" xml:base="http://zoubuzao.com/ruby/2019/04/18/ruby-method-argument.html">&lt;p&gt;可使用的参数：&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;必须参数 args&lt;/li&gt;
   &lt;li&gt;可选参数 args=4&lt;/li&gt;
@@ -20,48 +20,48 @@
   &lt;li&gt;变长参数可以放于必选参数前中后&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;以下为一个例子&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def method(a, b=2, *c, d:, e: 5, **f, &amp;amp;block)
-  p a
-  p b
-  p c
-  p d
-  p e
-  p f
-  p block
-end
+&lt;p&gt;以下为一个例子:&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;e: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">可使用的参数： 必须参数 args 可选参数 args=4 变长参数 **args 关键字参数 args: args: 4 block参数(将传入的block装换为一个Proc对象) 这些参数推荐的顺序为 必选参数-&amp;gt; 可选参数-&amp;gt; 变长参数 -&amp;gt; 关键词参数 -&amp;gt; 变长关键词参数 -&amp;gt; block参数</summary></entry><entry><title type="html">转载 Ruby block</title><link href="http://zoubuzao.com/ruby/2019/04/18/ruby-block.html" rel="alternate" type="text/html" title="转载 Ruby block" /><published>2019-04-18T00:00:00+08:00</published><updated>2019-04-18T00:00:00+08:00</updated><id>http://zoubuzao.com/ruby/2019/04/18/ruby-block</id><content type="html" xml:base="http://zoubuzao.com/ruby/2019/04/18/ruby-block.html">&lt;p&gt;一篇比较容易理解的讲述ruby block
-&lt;a href=&quot;https://mixandgo.com/learn/mastering-ruby-blocks-in-less-than-5-minutes&quot; target=&quot;_blank&quot;&gt;转载&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">一篇比较容易理解的讲述ruby block 转载</summary></entry><entry><title type="html">Ruby socket simple server</title><link href="http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html" rel="alternate" type="text/html" title="Ruby socket simple server" /><published>2019-04-18T00:00:00+08:00</published><updated>2019-04-18T00:00:00+08:00</updated><id>http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1</id><content type="html" xml:base="http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;require 'socket'
+&lt;a href=&quot;https://mixandgo.com/learn/mastering-ruby-blocks-in-less-than-5-minutes&quot; target=&quot;_blank&quot;&gt;转载&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">一篇比较容易理解的讲述ruby block 转载</summary></entry><entry><title type="html">Ruby socket simple server</title><link href="http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html" rel="alternate" type="text/html" title="Ruby socket simple server" /><published>2019-04-18T00:00:00+08:00</published><updated>2019-04-18T00:00:00+08:00</updated><id>http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1</id><content type="html" xml:base="http://zoubuzao.com/ruby/2019/04/18/ruby-socket-1.html">&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'socket'&lt;/span&gt;
 
-# 创建
-server = Socket.new(:INET, :STREAM)
-addr = Socket.pack_sockaddr_in(4444, '0.0.0.0')
-# 绑定
-server.bind(addr)
-# 监听
-server.listen(5)
-# 接受
-loop do
-	connection, _ = server.accept
-	# 处理连接
-	# 读取数据
-	p connection.read
-	# 发送数据
-	connection.write('ACK')
-	# 关闭
-	connection.close
-end
-# 关闭server
-server.close
+&lt;span class=&quot;c1&quot;&gt;# 创建&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:INET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:STREAM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;addr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pack_sockaddr_in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4444&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'0.0.0.0'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 绑定&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 监听&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 接受&lt;/span&gt;
+&lt;span class=&quot;kp&quot;&gt;loop&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;accept&lt;/span&gt;
+	&lt;span class=&quot;c1&quot;&gt;# 处理连接&lt;/span&gt;
+	&lt;span class=&quot;c1&quot;&gt;# 读取数据&lt;/span&gt;
+	&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;read&lt;/span&gt;
+	&lt;span class=&quot;c1&quot;&gt;# 发送数据&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'ACK'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;c1&quot;&gt;# 关闭&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;close&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 关闭server&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;close&lt;/span&gt;
 
-# 以上代码可以使用如下语法糖
-Socket.tcp_server_loop(4444, '0.0.0.0') do |connection|
-	p connection.read
-	# 发送数据
-	connection.write('ACK')
-	connection.close
-end
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">~~~ require ‘socket’</summary></entry><entry><title type="html">JavaScript 正则表达式</title><link href="http://zoubuzao.com/frontend/2019/04/11/regular-expression.html" rel="alternate" type="text/html" title="JavaScript 正则表达式" /><published>2019-04-11T00:00:00+08:00</published><updated>2019-04-11T00:00:00+08:00</updated><id>http://zoubuzao.com/frontend/2019/04/11/regular-expression</id><content type="html" xml:base="http://zoubuzao.com/frontend/2019/04/11/regular-expression.html">&lt;p&gt;JavaScript中的正则表达式对象在执行全局搜索时，其lastIndex属性会记录对同一字符串下次的搜索位置，此时对同一字符串执行两次搜索结果会出现不符合直觉上预期的方式。&lt;/p&gt;
+&lt;span class=&quot;c1&quot;&gt;# 以上代码可以使用如下语法糖&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;tcp_server_loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4444&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'0.0.0.0'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+	&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;read&lt;/span&gt;
+	&lt;span class=&quot;c1&quot;&gt;# 发送数据&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'ACK'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;close&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">```ruby require ‘socket’</summary></entry><entry><title type="html">JavaScript 正则表达式</title><link href="http://zoubuzao.com/frontend/2019/04/11/regular-expression.html" rel="alternate" type="text/html" title="JavaScript 正则表达式" /><published>2019-04-11T00:00:00+08:00</published><updated>2019-04-11T00:00:00+08:00</updated><id>http://zoubuzao.com/frontend/2019/04/11/regular-expression</id><content type="html" xml:base="http://zoubuzao.com/frontend/2019/04/11/regular-expression.html">&lt;p&gt;JavaScript中的正则表达式对象在执行全局搜索时，其lastIndex属性会记录对同一字符串下次的搜索位置，此时对同一字符串执行两次搜索结果会出现不符合直觉上预期的方式。&lt;/p&gt;
 
 &lt;p&gt;解决办法：1. 使用字符串的match方法 2. 手动设置lastIndex为0&lt;/p&gt;
 
