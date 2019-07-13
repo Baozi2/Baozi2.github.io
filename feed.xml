@@ -1,4 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://zoubuzao.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://zoubuzao.com/" rel="alternate" type="text/html" /><updated>2019-05-05T09:53:01+08:00</updated><id>http://zoubuzao.com/feed.xml</id><title type="html">邹鱼 一个全干工程师</title><subtitle>这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关</subtitle><entry><title type="html">Ruby write a configuration module or class</title><link href="http://zoubuzao.com/ruby/2019/05/05/make-a-config-module.html" rel="alternate" type="text/html" title="Ruby write a configuration  module or class" /><published>2019-05-05T00:00:00+08:00</published><updated>2019-05-05T00:00:00+08:00</updated><id>http://zoubuzao.com/ruby/2019/05/05/make-a-config-module</id><content type="html" xml:base="http://zoubuzao.com/ruby/2019/05/05/make-a-config-module.html">&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Mailer&lt;/span&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://zoubuzao.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://zoubuzao.com/" rel="alternate" type="text/html" /><updated>2019-07-13T14:39:01+08:00</updated><id>http://zoubuzao.com/feed.xml</id><title type="html">邹鱼 一个全干工程师</title><subtitle>这是邹鱼的个人网站，主要和Ruby、Ruby on Rails、前端、java有关</subtitle><entry><title type="html">rails Testing 功能测试 集成测试 系统测试</title><link href="http://zoubuzao.com/rails/2019/07/13/test.html" rel="alternate" type="text/html" title="rails Testing 功能测试 集成测试 系统测试" /><published>2019-07-13T00:00:00+08:00</published><updated>2019-07-13T00:00:00+08:00</updated><id>http://zoubuzao.com/rails/2019/07/13/test</id><content type="html" xml:base="http://zoubuzao.com/rails/2019/07/13/test.html">&lt;h1 id=&quot;功能测试functional-testing-集成测试integration-testing-系统测试system-testing&quot;&gt;功能测试(Functional Testing) 集成测试(Integration Testing) 系统测试(System Testing)&lt;/h1&gt;
+
+&lt;p&gt;第一次看这三个概念很模糊，尤其是理解集成测试和系统测试的区别上，最后在rails的源代码中找到一丝端倪，所以记录下自己的一些见解。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;功能测试，主要用来测试单个action&lt;/li&gt;
+  &lt;li&gt;集成测试，可能跨越多个controller、action，用来测试重要的工作流程&lt;/li&gt;
+  &lt;li&gt;系统测试，在rails的源码中发现它是集成自集成测试的，它运行浏览器环境中，能够很方便的测试你的js代码。End-to-end 测试&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;在浏览器环境中运行是系统测试和集成测试最主要的区别，系统测试通过近似人的方式来测试代码准确性，突入&lt;strong&gt;人&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;集成测试通过一系列的输入和对输出的检查来验证代码的准确性。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;集成测试&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;can create an article&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/articles/new&quot;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;assert_response&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:success&lt;/span&gt;
+ 
+  &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/articles&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;params: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;article: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;title: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;can create&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;body: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;article successfully.&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;assert_response&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:redirect&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;follow_redirect!&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;assert_response&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:success&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;assert_select&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;p&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Title:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;  can create&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;系统测试&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;creating an article&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;visit&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;articles_path&lt;/span&gt;
+ 
+  &lt;span class=&quot;n&quot;&gt;click_on&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;New Article&quot;&lt;/span&gt;
+ 
+  &lt;span class=&quot;n&quot;&gt;fill_in&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Title&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;with: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Creating an Article&quot;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;fill_in&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Body&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;with: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Created this article successfully!&quot;&lt;/span&gt;
+ 
+  &lt;span class=&quot;n&quot;&gt;click_on&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Create Article&quot;&lt;/span&gt;
+ 
+  &lt;span class=&quot;n&quot;&gt;assert_text&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Creating an Article&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">功能测试(Functional Testing) 集成测试(Integration Testing) 系统测试(System Testing)</summary></entry><entry><title type="html">Ruby write a configuration module or class</title><link href="http://zoubuzao.com/ruby/2019/05/05/make-a-config-module.html" rel="alternate" type="text/html" title="Ruby write a configuration  module or class" /><published>2019-05-05T00:00:00+08:00</published><updated>2019-05-05T00:00:00+08:00</updated><id>http://zoubuzao.com/ruby/2019/05/05/make-a-config-module</id><content type="html" xml:base="http://zoubuzao.com/ruby/2019/05/05/make-a-config-module.html">&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Mailer&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;
       &lt;span class=&quot;nb&quot;&gt;attr_accessor&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:configuration&lt;/span&gt;
       
@@ -270,107 +317,4 @@ Here'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=
   &lt;span class=&quot;no&quot;&gt;Deadline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= user.deadline %&amp;gt;
   Name: &amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%&amp;gt;
 &amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Action View中使用render渲染局部模板(Partials)</summary></entry><entry><title type="html">探究require ‘bundler/setup’</title><link href="http://zoubuzao.com/bundler/2019/03/02/bundler-setup.html" rel="alternate" type="text/html" title="探究require 'bundler/setup'" /><published>2019-03-02T00:00:00+08:00</published><updated>2019-03-02T00:00:00+08:00</updated><id>http://zoubuzao.com/bundler/2019/03/02/bundler-setup</id><content type="html" xml:base="http://zoubuzao.com/bundler/2019/03/02/bundler-setup.html">&lt;h4 id=&quot;探究require-bundlersetup&quot;&gt;探究&lt;code class=&quot;highlighter-rouge&quot;&gt;require 'bundler/setup'&lt;/code&gt;&lt;/h4&gt;
-
-&lt;p&gt;概括来说&lt;code class=&quot;highlighter-rouge&quot;&gt;require 'bundler/setup'&lt;/code&gt;，移除$LOAD_PATH中除了bundler所有gem，然后将Gemfile中的gem加入$LOAD_PATH。
-这是此段代码的主要作用。&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;c1&quot;&gt;# frozen_string_literal: true&lt;/span&gt;
-
-  &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;bundler/shared_helpers&quot;&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Bundler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SharedHelpers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;in_bundle?&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;bundler&quot;&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;STDOUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;tty?&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BUNDLER_FORCE_TTY&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;begin&lt;/span&gt;
-        &lt;span class=&quot;no&quot;&gt;Bundler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;rescue&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Bundler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;BundlerError&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[31m&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0m&quot;&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;backtrace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DEBUG&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;is_a?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Bundler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;GemNotFound&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-          &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[33mRun `bundle install` to install missing gems.&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0m&quot;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;status_code&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-      &lt;span class=&quot;no&quot;&gt;Bundler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-    &lt;span class=&quot;c1&quot;&gt;# Add bundler to the load path after disabling system gems&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;bundler_lib&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;expand_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;../..&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;__FILE__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;vg&quot;&gt;$LOAD_PATH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;unshift&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bundler_lib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;vg&quot;&gt;$LOAD_PATH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bundler_lib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;no&quot;&gt;Bundler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ui&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;在上面的代码中调用了Bundler.setup，这个方法最终调用了如下代码：&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groups&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@definition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ensure_equivalent_gemfile_and_lockfile&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Bundler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;frozen?&lt;/span&gt;
-
-      &lt;span class=&quot;n&quot;&gt;groups&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:to_sym&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-      &lt;span class=&quot;c1&quot;&gt;# Has to happen first&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;clean_load_path&lt;/span&gt;
-
-      &lt;span class=&quot;n&quot;&gt;specs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;groups&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;any?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@definition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;specs_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groups&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requested_specs&lt;/span&gt;
-
-      &lt;span class=&quot;no&quot;&gt;SharedHelpers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;set_bundle_environment&lt;/span&gt;
-      &lt;span class=&quot;no&quot;&gt;Bundler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rubygems&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;replace_entrypoints&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;specs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-      &lt;span class=&quot;c1&quot;&gt;# Activate the specs&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;load_paths&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;specs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;loaded_from&lt;/span&gt;
-          &lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;GemNotFound&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;full_name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; is missing. Run `bundle install` to get it.&quot;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-        &lt;span class=&quot;n&quot;&gt;check_for_activated_spec!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-        &lt;span class=&quot;no&quot;&gt;Bundler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rubygems&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;mark_loaded&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;load_paths&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reject&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;vg&quot;&gt;$LOAD_PATH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;flatten&lt;/span&gt;
-
-      &lt;span class=&quot;c1&quot;&gt;# See Gem::Specification#add_self_to_load_path (since RubyGems 1.8)&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;insert_index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Bundler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rubygems&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;load_path_insert_index&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;# Gem directories must come after -I and ENV['RUBYLIB']&lt;/span&gt;
-        &lt;span class=&quot;vg&quot;&gt;$LOAD_PATH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;insert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;insert_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load_paths&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;# We are probably testing in core, -I and RUBYLIB don't apply&lt;/span&gt;
-        &lt;span class=&quot;vg&quot;&gt;$LOAD_PATH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;unshift&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load_paths&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-      &lt;span class=&quot;n&quot;&gt;setup_manpath&lt;/span&gt;
-
-      &lt;span class=&quot;n&quot;&gt;lock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:preserve_unknown_sections&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;上面代码调用了clean_load_path，这段代码的作用就是清除非bundler的gem&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;clean_load_path&lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;# handle 1.9 where system gems are always on the load path&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defined?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Gem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-      &lt;span class=&quot;n&quot;&gt;bundler_lib&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bundler_ruby_lib&lt;/span&gt;
-
-      &lt;span class=&quot;n&quot;&gt;loaded_gem_paths&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Bundler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rubygems&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;loaded_gem_paths&lt;/span&gt;
-
-      &lt;span class=&quot;vg&quot;&gt;$LOAD_PATH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reject!&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;expand_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;start_with?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bundler_lib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;loaded_gem_paths&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-      &lt;span class=&quot;vg&quot;&gt;$LOAD_PATH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;uniq!&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;setup方法剩下的一部分代码作用就是加载Gemfile中的代码&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><summary type="html">探究require 'bundler/setup'</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Action View中使用render渲染局部模板(Partials)</summary></entry></feed>
